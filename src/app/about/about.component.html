@@ -1,3 +1,12 @@
 <p>about works!</p>
+<h3>Hello {{ name }}</h3>
 <h3>Hello {{ age }}</h3>
 <button (click)="tangTuoi()">Tang Tuoi</button>
+<br />
+Comments:
+<br />
+<span>{{ comments | json}}</span>
+<br />
+Comments[0]:
+<br />
+<span *ngIf="comments">{{ comments[0] | json}}</span>
