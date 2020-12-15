@@ -12,15 +12,34 @@ Comments[0]:
 <br />
 <span *ngIf="comments">{{ comments[0] | json}}</span><br /> -->
 Posts:
-<br />
-<div *ngFor="let post of posts">
-    <li>
-        {{ post | json }}
-    </li>
 
-</div>
 
 <br />
+
+<table id="customers" style="border-collapse: collapse;">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+    </tr>
+    <tr *ngFor="let post of posts">
+        <td>
+            {{post.id}}
+        </td>
+        <td>
+            {{post.title}}
+        </td>
+        <td>
+            {{post.author}}
+        </td>
+    </tr>
+</table>
 <br />
 
 <button (click)="addPost()">Add Post</button>
