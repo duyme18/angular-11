@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name" required [(ngModel)]="name" />
+        </div>
+        <div>
+            <span *ngIf="name === ''" class="errorMessage">
+                * Cần phải nhập tên
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" required [(ngModel)]="password" />
+        </div>
+        <div>
+            <span *ngIf="password === ''" class="errorMessage">
+                * Cần phải nhập password
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="vihecle">Vihecles</label>
+            <br />
+            <select (change)="selectVehicle($event)">
+                <option *ngFor="let vehicle of vehicles">{{ vehicle }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+    </form>
+</div>
