@@ -1,12 +1,26 @@
 <p>about works!</p>
 <h3>Hello {{ name }}</h3>
 <h3>Hello {{ age }}</h3>
+<h3>Bạn có <span class="postCss">&nbsp;{{ posts?.length }}&nbsp;</span> tin nhắn </h3>
 <button (click)="tangTuoi()">Tang Tuoi</button>
 <br />
-Comments:
+<!-- Comments:
 <br />
 <span>{{ comments | json}}</span>
 <br />
 Comments[0]:
 <br />
-<span *ngIf="comments">{{ comments[0] | json}}</span>
+<span *ngIf="comments">{{ comments[0] | json}}</span><br /> -->
+Posts:
+<br />
+<div *ngFor="let post of posts">
+    <li>
+        {{ post | json }}
+    </li>
+
+</div>
+
+<br />
+<br />
+
+<button (click)="addPost()">Add Post</button>
