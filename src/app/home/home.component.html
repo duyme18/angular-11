@@ -1,0 +1,24 @@
+<h1>Hello World!</h1>
+<h2 class="myfirstcss">HDD</h2>
+<h3>Hello {{ name }}</h3>
+<h3>Hello {{ age }}</h3>
+
+<br />
+<span *ngIf="age < 30; then trueCondition; else falseCondition" MyColor>
+
+</span>
+<ng-template #trueCondition><span appBold>bạn dưới 30 tuổi</span></ng-template>
+<ng-template #falseCondition><span>bạn trên 30 tuổi</span></ng-template>
+<input [(ngModel)]="name" />
+<br />
+Danh sách xe: <br />
+<div *ngFor="let vehicle of vehicles">
+    <li>{{ vehicle }}</li>
+</div>
+
+<button (click)="tangTuoi()">Tang Tuoi</button>
+<div>
+    <select>
+        <option *ngFor="let vehicle of vehicles">{{ vehicle }}</option>
+    </select>
+</div>
