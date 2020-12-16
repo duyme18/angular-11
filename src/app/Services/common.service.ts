@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
   public age = 20;
+  public totalStudents = 0;
   constructor() { }
 
   public tangTuoi() {

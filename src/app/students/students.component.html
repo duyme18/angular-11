@@ -1,0 +1,25 @@
+<div>
+    <button mat-raised-button color="primary" (click)="addStudent()">
+        <mat-icon>add_box</mat-icon><span>Thêm</span>
+    </button>
+    <table id="customers" style="border-collapse: collapse;">
+        <tr>
+            <th>Id</th>
+            <th>Mã sinh viên</th>
+            <th>Giới tính</th>
+            <th>Tên</th>
+            <th>Họ</th>
+            <th>Email</th>
+            <th>SĐT</th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>{{ student?.id }}</td>
+            <td>{{ student?.code }}</td>
+            <td>{{ student?.gender }}</td>
+            <td>{{ student?.firstName }}</td>
+            <td>{{ student?.lastName }}</td>
+            <td>{{ student?.email }}</td>
+            <td>{{ student?.phone }}</td>
+        </tr>
+    </table>
+</div>

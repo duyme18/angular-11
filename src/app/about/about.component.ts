@@ -19,19 +19,19 @@ export class AboutComponent implements OnInit {
     // this.age = common.age;
   }
   ngOnInit(): void {
-    this.serverHttp.getProfile().subscribe((data) => {
-      console.log(data);
-      this.name = data.name;
-      this.age = data.age;
-    });
-    this.serverHttp.getComments().subscribe((data) => {
-      console.log('comments', data);
-      this.comments = data;
-    });
-    this.serverHttp.getPosts().subscribe((data) => {
-      console.log('posts', data);
-      this.posts = data;
-    });
+    // this.serverHttp.getProfile().subscribe((data) => {
+    //   console.log(data);
+    //   this.name = data.name;
+    //   this.age = data.age;
+    // });
+    // this.serverHttp.getComments().subscribe((data) => {
+    //   console.log('comments', data);
+    //   this.comments = data;
+    // });
+    // this.serverHttp.getPosts().subscribe((data) => {
+    //   console.log('posts', data);
+    //   this.posts = data;
+    // });
 
   }
 
