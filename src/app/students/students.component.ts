@@ -18,15 +18,23 @@ export class StudentsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  private loadData() {
     this.serverHttp.getStudents().subscribe((data) => {
-      console.log(data);
       this.students = data;
       this.common.setTotalStudents(data.length);
     });
-
   }
-
+  
   public addStudent() {
     this.router.navigate(['student-form']);
+  }
+
+  public deleteStudent(studentId: any) {
+    this.serverHttp.deleteStudent(studentId).subscribe((data) => {
+      this.loadData();
+    });
   }
 }

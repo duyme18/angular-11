@@ -4,6 +4,7 @@
     </button>
     <table id="customers" style="border-collapse: collapse;">
         <tr>
+            <th></th>
             <th>Id</th>
             <th>Mã sinh viên</th>
             <th>Giới tính</th>
@@ -13,6 +14,10 @@
             <th>SĐT</th>
         </tr>
         <tr *ngFor="let student of students">
+            <td>
+                <mat-icon style="cursor: pointer;" title="Nhấn vào để xóa" (click)="deleteStudent(student.id)">clear
+                </mat-icon>
+            </td>
             <td>{{ student?.id }}</td>
             <td>{{ student?.code }}</td>
             <td>{{ student?.gender }}</td>
