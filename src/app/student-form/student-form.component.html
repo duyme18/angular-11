@@ -45,5 +45,9 @@
         <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="save()">Thêm <span
                 *ngIf="id == 0">và nhập
                 mới</span></button>
+        &nbsp;
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="randomStudent()"
+            *ngIf="id == 0">
+            <span *ngIf="id == 0">Lấy ngẫu nhiên 1 người mới</span></button>
     </form>
 </div>

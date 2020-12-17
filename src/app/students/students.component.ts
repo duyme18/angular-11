@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Student } from '../models/student';
 import { CommonService } from '../Services/common.service';
 import { ServerHttpService } from '../Services/server-http.service';
+import * as lodash from 'lodash';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-students',
@@ -40,5 +42,13 @@ export class StudentsComponent implements OnInit {
 
   public editStudent(studentId: any) {
     this.router.navigate(['student-form', studentId]);
+  }
+
+  public sortByCode(dir: string) {
+    if (dir === "up") {
+      this.students = lodash.orderBy(this.students, ['code'], ['desc']);
+    } else if (dir === "down") {
+      this.students = lodash.orderBy(this.students, ['code'], ['asc']);
+    }
   }
 }

@@ -6,12 +6,15 @@
         <tr>
             <th></th>
             <th>Id</th>
-            <th>Mã sinh viên</th>
+            <th>Mã sinh viên<mat-icon style="cursor: pointer;" (click)="sortByCode('down')">arrow_downward</mat-icon>
+                <mat-icon style="cursor: pointer;" (click)="sortByCode('up')">arrow_upward</mat-icon>
+            </th>
             <th>Giới tính</th>
             <th>Tên</th>
             <th>Họ</th>
             <th>Email</th>
             <th>SĐT</th>
+            <th>Hình</th>
         </tr>
         <tr *ngFor="let student of students">
             <td>
@@ -29,6 +32,7 @@
             <td>{{ student?.lastName }}</td>
             <td>{{ student?.email }}</td>
             <td>{{ student?.phone }}</td>
+            <td align="center"><img src="{{ student?.picture }}" alt="" height="50" *ngIf="student?.picture"></td>
         </tr>
     </table>
 </div>

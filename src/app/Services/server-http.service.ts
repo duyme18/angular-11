@@ -31,6 +31,10 @@ export class ServerHttpService {
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
+  public getRandomStudent() {
+    const url = `https://randomuser.me/api/?resultts=1`;
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+  }
   public addStudent(student: Student) {
     const url = `${this.REST_API_SERVER}/students`;
     return this.httpClient.post<any>(url, student, this.httpOptions).pipe(catchError(this.handleError));

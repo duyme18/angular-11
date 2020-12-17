@@ -8,7 +8,7 @@
       "dob": "1",
       "email": "1",
       "phone": "1",
-      "picture": "1",
+      "picture": "https://randomuser.me/api/portraits/men/99.jpg",
       "id": 1
     },
     {
@@ -19,7 +19,7 @@
       "dob": "2",
       "email": "2",
       "phone": "2",
-      "picture": "2",
+      "picture": "https://randomuser.me/api/portraits/men/99.jpg",
       "id": 2
     },
     {
@@ -30,8 +30,41 @@
       "dob": "3",
       "email": "3",
       "phone": "3",
-      "picture": "3",
+      "picture": "https://randomuser.me/api/portraits/men/99.jpg",
       "id": 3
+    },
+    {
+      "code": "PPS",
+      "gender": "male",
+      "firstName": "Wallace",
+      "lastName": "Lynch",
+      "dob": "1992-03-20T02:47:28.105Z",
+      "email": "wallace.lynch@example.com",
+      "phone": "071-535-7559",
+      "picture": "https://randomuser.me/api/portraits/men/63.jpg",
+      "id": 4
+    },
+    {
+      "code": "INSEE",
+      "gender": "female",
+      "firstName": "Charline",
+      "lastName": "Leroy",
+      "dob": "1959-05-10T13:48:14.966Z",
+      "email": "charline.leroy@example.com",
+      "phone": "02-07-87-02-36",
+      "picture": "https://randomuser.me/api/portraits/women/69.jpg",
+      "id": 5
+    },
+    {
+      "code": "INSEE",
+      "gender": "male",
+      "firstName": "Lucien",
+      "lastName": "Brunet",
+      "dob": "1963-04-17T13:11:55.792Z",
+      "email": "lucien.brunet@example.com",
+      "phone": "01-06-51-64-33",
+      "picture": "https://randomuser.me/api/portraits/men/99.jpg",
+      "id": 6
     }
   ],
   "posts": [
