@@ -21,6 +21,11 @@ export class ServerHttpService {
     private httpClient: HttpClient,
   ) { }
 
+  public getStudent(studentId: number) {
+    const url = `${this.REST_API_SERVER}/students/` + studentId;
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
   public getStudents() {
     const url = `${this.REST_API_SERVER}/students`;
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
@@ -29,6 +34,11 @@ export class ServerHttpService {
   public addStudent(student: Student) {
     const url = `${this.REST_API_SERVER}/students`;
     return this.httpClient.post<any>(url, student, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public modifyStudent(studentId: number, student: Student) {
+    const url = `${this.REST_API_SERVER}/students/` + studentId;
+    return this.httpClient.put<any>(url, student, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   public deleteStudent(studentId: number) {
@@ -55,11 +65,6 @@ export class ServerHttpService {
     const url = `${this.REST_API_SERVER}/posts`;
     return this.httpClient.post<any>(url, data, this.httpOptions).pipe(catchError(this.handleError));
   }
-
-  // public deletePosts(id: any) {
-  //   const url = `${this.REST_API_SERVER}/posts`;
-  //   return this.httpClient.delete<any>(url, id).pipe(catchError(this.handleError));
-  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

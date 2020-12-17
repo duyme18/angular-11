@@ -17,6 +17,10 @@
             <td>
                 <mat-icon style="cursor: pointer;" title="Nhấn vào để xóa" (click)="deleteStudent(student.id)">clear
                 </mat-icon>
+                &nbsp;
+                <mat-icon style="cursor: pointer;" title="Nhấn vào để chỉnh sửa" (click)="editStudent(student.id)">edit
+                </mat-icon>
+
             </td>
             <td>{{ student?.id }}</td>
             <td>{{ student?.code }}</td>

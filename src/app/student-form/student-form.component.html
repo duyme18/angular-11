@@ -42,7 +42,8 @@
             trở về
             danh sách</button>
         &nbsp;
-        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="save()">Thêm và nhập
-            mới</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="save()">Thêm <span
+                *ngIf="id == 0">và nhập
+                mới</span></button>
     </form>
 </div>

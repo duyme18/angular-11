@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { Student } from '../models/student';
 import { CommonService } from '../Services/common.service';
 import { ServerHttpService } from '../Services/server-http.service';
@@ -25,9 +26,25 @@ export class StudentFormComponent implements OnInit {
 
   constructor(private common: CommonService,
     private serverHttp: ServerHttpService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+
+    if (this.id > 0) {
+      this.loadData(this.id);
+    }
+  }
+
+  private loadData(id: number) {
+    this.serverHttp.getStudent(id).subscribe((data => {
+      for (const controlName in this.studentForm.controls) {
+        if (controlName) {
+          this.studentForm.controls[controlName].setValue(data[controlName]);
+        }
+      }
+    }))
   }
 
   private createNewData() {
@@ -41,15 +58,26 @@ export class StudentFormComponent implements OnInit {
   }
 
   public save() {
-    this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
-      this.common.incrementTotalStudents();
-      this.studentForm.reset();
-    });
+    if (this.id > 0) {
+      this.serverHttp.modifyStudent(this.id, this.createNewData()).subscribe((data) => {
+      });
+    } else {
+      this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
+        this.common.incrementTotalStudents();
+        this.studentForm.reset();
+      });
+    }
   }
 
   public saveGoToList() {
-    this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
-      this.router.navigate(['students']);
-    });
+    if (this.id > 0) {
+      this.serverHttp.modifyStudent(this.id, this.createNewData()).subscribe((data) => {
+        this.router.navigate(['students']);
+      });
+    } else {
+      this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
+        this.router.navigate(['students']);
+      });
+    }
   }
 }

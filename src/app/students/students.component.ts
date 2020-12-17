@@ -27,14 +27,18 @@ export class StudentsComponent implements OnInit {
       this.common.setTotalStudents(data.length);
     });
   }
-  
+
   public addStudent() {
-    this.router.navigate(['student-form']);
+    this.router.navigate(['student-form', 0]);
   }
 
   public deleteStudent(studentId: any) {
     this.serverHttp.deleteStudent(studentId).subscribe((data) => {
       this.loadData();
     });
+  }
+
+  public editStudent(studentId: any) {
+    this.router.navigate(['student-form', studentId]);
   }
 }

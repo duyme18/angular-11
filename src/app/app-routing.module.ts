@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'students', component: StudentsComponent
   },
   {
-    path: 'student-form', component: StudentFormComponent
+    path: 'student-form/:id', component: StudentFormComponent
   },
   // {
   //   path: 'form', component: FormComponent
