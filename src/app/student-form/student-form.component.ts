@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Student } from '../models/student';
 import { CommonService } from '../Services/common.service';
 import { ServerHttpService } from '../Services/server-http.service';
 
@@ -29,16 +30,26 @@ export class StudentFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onSubmit() {
+  private createNewData() {
     const newStudent: any = {};
     for (const controlName in this.studentForm.controls) {
       if (controlName) {
         newStudent[controlName] = this.studentForm.controls[controlName].value;
       }
     }
-    this.serverHttp.addStudent(newStudent).subscribe((data) => {
-      console.log(data);
+    return newStudent as Student;
+  }
+
+  public save() {
+    this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
+      this.common.incrementTotalStudents();
+      this.studentForm.reset();
+    });
+  }
+
+  public saveGoToList() {
+    this.serverHttp.addStudent(this.createNewData()).subscribe((data) => {
       this.router.navigate(['students']);
-    })
+    });
   }
 }

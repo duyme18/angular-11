@@ -38,6 +38,11 @@
             <input matInput placeholder="" formControlName="picture" require />
         </mat-form-field>
         <br />
-        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="saveGoToList()">Thêm và
+            trở về
+            danh sách</button>
+        &nbsp;
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid" (click)="save()">Thêm và nhập
+            mới</button>
     </form>
 </div>

@@ -21,7 +21,7 @@ export class StudentsComponent implements OnInit {
     this.serverHttp.getStudents().subscribe((data) => {
       console.log(data);
       this.students = data;
-      this.common.totalStudents = data.length;
+      this.common.setTotalStudents(data.length);
     });
 
   }

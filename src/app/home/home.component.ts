@@ -13,14 +13,11 @@ export class HomeComponent implements OnInit {
   public vehicles = ['Toyota', 'Honda'];
 
   constructor(private common: CommonService) {
-    this.age = common.age;
   }
 
   ngOnInit(): void {
   }
 
   public tangTuoi() {
-    this.common.age++;
-    this.age = this.common.age;
   }
 }
